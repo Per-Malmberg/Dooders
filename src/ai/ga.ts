@@ -1,7 +1,7 @@
 import Brain from "./brain";
 
 export default class Ga {
-  function(): Brain[] {
+  evolve = (): Brain[] => {
     return null;
-  }
+  };
 }
