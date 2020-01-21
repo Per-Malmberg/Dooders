@@ -13,7 +13,7 @@ export class DObject implements Renderable {
   render(p5in: P5) {
     const p5 = p5in; // just for convenience
 
-    p5.push();
+    p5.push(); // Boom
 
     p5.translate(this._pos);
     p5.noStroke();
