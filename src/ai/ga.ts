@@ -3,7 +3,7 @@ import Brain from "./brain";
 export default class Ga {
   evolve = (pop: Brain[]): Brain[] => {
     let newPop = new Array<Brain>();
-    while (newPop.length != pop.length) {
+    while (newPop.length !== pop.length) {
       let firstParent = this.tournament(pop);
       let secondParent = this.tournament(pop.filter(x => x !== firstParent));
       let child = this.crossover(firstParent, secondParent);
