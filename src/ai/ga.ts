@@ -1,8 +1,16 @@
 import Brain from "./brain";
 
 export default class Ga {
-  evolve = (): Brain[] => {
-    return null;
+  evolve = (pop: Brain[]): Brain[] => {
+    let newPop = new Array<Brain>();
+    while (newPop.length != pop.length) {
+      let firstParent = this.tournament(pop);
+      let secondParent = this.tournament(pop.filter(x => x !== firstParent));
+      let child = this.crossover(firstParent, secondParent);
+      child = this.mutate(child);
+      newPop.push(child);
+    }
+    return newPop;
   };
 
   tournament = (pop: Brain[]): Brain => {
@@ -12,5 +20,13 @@ export default class Ga {
       selected.push(pop[index]);
     }
     return selected.reduce((x, y) => (x.Fitness > y.Fitness ? x : y));
+  };
+
+  crossover = (firstParent: Brain, secondParent: Brain): Brain => {
+    throw Error("Not implemented");
+  };
+
+  mutate = (child: Brain): Brain => {
+    throw Error("Not implemented");
   };
 }
