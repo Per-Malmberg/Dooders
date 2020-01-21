@@ -27,3 +27,18 @@ export class DObject implements Renderable {
 export interface Renderable {
   render(p5: P5);
 }
+
+export class EatableObject {
+  constructor(
+    private _startAmount,
+    private _regenerate: number,
+    private _regenerateSpeed,
+    private _energyPerHarvest: number
+  ) {}
+}
+
+export class AppleTree extends EatableObject {
+  constructor(p5: P5) {
+    super(0, 5, 1, 1);
+  }
+}
