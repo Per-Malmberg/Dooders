@@ -18,7 +18,6 @@ export default class Ga {
     for (let i = 0; i < pop.length * 0.4; i++) {
       let index = Math.floor(Math.random() * pop.length);
       selected.push(pop[index]);
-      console.log("Testing");
     }
     return selected.reduce((x, y) => (x.Fitness > y.Fitness ? x : y));
   };
