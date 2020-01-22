@@ -23,7 +23,13 @@ export default class Ga {
   };
 
   crossover = (firstParent: Brain, secondParent: Brain): Brain => {
-    throw Error("Not implemented");
+    let position = Math.floor(Math.random() * firstParent.Genotype.length);
+    let child = new Brain();
+    for (let i = 0; i < firstParent.Genotype.length; i++) {
+      child.Genotype[i] =
+        i < position ? firstParent.Genotype[i] : secondParent.Genotype[i];
+    }
+    return child;
   };
 
   mutate = (child: Brain): Brain => {
