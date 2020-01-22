@@ -1,5 +1,8 @@
 import Brain from "./brain";
 
+let mutationRate = 0.15;
+let mutationAmount = 0.1;
+
 export default class Ga {
   evolve = (pop: Brain[]): Brain[] => {
     let newPop = new Array<Brain>();
@@ -33,6 +36,10 @@ export default class Ga {
   };
 
   mutate = (child: Brain): Brain => {
-    throw Error("Not implemented");
+    if (Math.random() > mutationRate) {
+      return;
+    }
+    let position = Math.floor(Math.random() * child.Genotype.length);
+    child.Genotype[position] += (Math.random() * 2 - 1) * mutationAmount;
   };
 }
